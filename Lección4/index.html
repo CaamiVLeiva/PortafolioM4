@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lección 4
+    </title>
+</head>
+<body>
+    <script>
+        // Solicitar el número de empleados
+        let empleados = parseInt(prompt("¿Cuántos empleados tiene la empresa?"));
+        let matrizBruto = [];  // Matriz para almacenar sueldos brutos
+        let matrizLiquido = [];  // Matriz para almacenar sueldos líquidos
+
+        // Bucle para ingresar datos de cada empleado
+        for (let i = 0; i < empleados; i++) {
+            // Solicitar nombre del empleado
+            let nombreEmpleado = prompt(`Ingresa el nombre del empleado ${i + 1}:`);
+            // Solicitar sueldo bruto del empleado
+            let sueldoBruto = parseFloat(prompt(`Ingresa el sueldo bruto de ${nombreEmpleado}:`));
+            // Calcular el sueldo líquido aplicando 10% de previsión y 7% de salud
+            let sueldoLiquido = sueldoBruto * 0.83;
+
+            // Agregar los datos a las matrices
+            matrizBruto.push({ nombre: nombreEmpleado, sueldo: sueldoBruto });
+            matrizLiquido.push({ nombre: nombreEmpleado, sueldo: sueldoLiquido });
+        }
+
+        // Función para generar HTML para una matriz dada
+        function generarHTMLMatriz(titulo, matriz) {
+            let html = `<h3>${titulo}</h3><ul>`;
+            for (let i = 0; i < matriz.length; i++) {
+                html += `<li>${matriz[i].nombre}: ${matriz[i].sueldo}</li>`;
+            }
+            html += "</ul>";
+            return html;
+        }
+
+        // Generar HTML para ambas matrices
+        let matrizBrutoHTML = generarHTMLMatriz("Matriz Sueldo Bruto", matrizBruto);
+        let matrizLiquidoHTML = generarHTMLMatriz("Matriz Sueldo Líquido", matrizLiquido);
+
+        // Insertar el HTML generado en el documento
+        document.body.innerHTML += matrizBrutoHTML;
+        document.body.innerHTML += matrizLiquidoHTML;
+    </script>
+</body>
+</html>

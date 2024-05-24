@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lección 5</title>
+</head>
+<body>
+    <script>
+        // Solicitar la cantidad de usuarios
+        let cantidadUsuarios = parseInt(prompt("¿Cuántos usuarios desea ingresar?"));
+        let listaUsuarios = [];
+
+        // Bucle para ingresar datos de cada usuario
+        for (let i = 0; i < cantidadUsuarios; i++) {
+            let nombreUsuario = prompt(`Ingrese el nombre del usuario ${i + 1}:`);
+            let idUsuario = prompt(`Ingrese el ID del usuario ${i + 1}:`);
+            let añoNacimiento = parseInt(prompt(`Ingrese el año de nacimiento del usuario ${i + 1}:`));
+            
+            // Convertir el año de nacimiento a hexadecimal y añadir un número aleatorio
+            let contraseña = (añoNacimiento.toString(16) + Math.floor(Math.random() * 100 + 1)).toUpperCase();
+            // Agregar el usuario a la lista
+            listaUsuarios.push({
+                nombre: nombreUsuario,
+                id: idUsuario,
+                añoNacimiento: añoNacimiento,
+                contraseña: contraseña
+            });
+        }
+
+        // Función para generar HTML para la lista de usuarios
+        function generarHTMLUsuarios(usuarios) {
+            let html = "<h3>Lista de Usuarios</h3><ul>";
+            for (let i = 0; i < usuarios.length; i++) {
+                html += `<li>Nombre: ${usuarios[i].nombre}, ID: ${usuarios[i].id}, Año de Nacimiento: ${usuarios[i].añoNacimiento}, Contraseña: ${usuarios[i].contraseña}</li>`;
+            }
+            html += "</ul>";
+            return html;
+        }
+
+        // Generar e insertar el HTML en el documento
+        document.body.innerHTML += generarHTMLUsuarios(listaUsuarios);
+    </script>
+</body>
+</html>

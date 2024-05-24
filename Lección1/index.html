@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lección 1</title>
+</head>
+<body>
+    <h1 id="nombreUsuario"></h1>
+    <p id="saludo"></p>
+
+    <script>
+        // Solicitar el nombre del usuario
+        let nombre = prompt("Por favor, ingresa tu nombre:");
+
+        // Insertar el nombre en el header <h1>
+        document.getElementById("nombreUsuario").textContent = nombre;
+
+        // Escribir "Mucho gusto" en el párrafo <p>
+        document.getElementById("saludo").textContent = "Mucho gusto";
+
+        // Escribir en la consola
+        console.log("Acabo de insertar tu nombre en un header");
+
+        // Generar una alerta
+        window.alert("Programa Terminado");
+    </script>
+</body>
+</html>

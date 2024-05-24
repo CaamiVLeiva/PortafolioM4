@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lección 3</title>
+</head>
+<body>
+    <p id="ubicaciones"></p>
+    <p id="posicionComas"></p>
+
+    <script>
+        // Solicitar los nombres
+        let nombres = prompt("Ingresa tres nombres separados por comas:");
+
+        // Mostrar la ubicación de cada letra
+        let ubicacionLetras = "";
+        for (let i = 0; i < nombres.length; i++) {
+            ubicacionLetras += `La letra "${nombres[i]}" está en la posición ${i}<br>`;
+        }
+        document.getElementById("ubicaciones").innerHTML = ubicacionLetras;
+
+        // Indicar la posición de las comas
+        let posicionesComas = [];
+        for (let i = 0; i < nombres.length; i++) {
+            if (nombres[i] === ",") {
+                posicionesComas.push(i);
+            }
+        }
+        document.getElementById("posicionComas").textContent = 
+            `Las comas están en las posiciones: ${posicionesComas.join(", ")}`;
+    </script>
+</body>
+</html>
